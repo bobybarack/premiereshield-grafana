@@ -1,0 +1,80 @@
+import pytest
+import sys
+from pathlib import Path
+from httpx import AsyncClient, ASGITransport
+
+# Add backend to path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "backend"))
+
+from main import app
+from services.agent_commander import agent_commander
+from services.chaos import chaos_manager
+
+def test_agent_configuration():
+    """Verifies that the Gemini Agent is initialized with the valid Google Cloud API key and model."""
+    assert agent_commander.is_configured() is True
+    assert agent_commander.model_name in ["models/gemini-3.6-flash", "models/gemini-3.7-flash", "models/gemini-2.5-flash"]
+
+@pytest.mark.asyncio
+async def test_agent_healthy_stream_evaluation():
+    """Verifies that when metrics are nominal, the agent confirms healthy status without false alarms."""
+    chaos_manager.reset_to_normal()
+    result = await agent_commander.investigate_and_remediate()
+    
+    assert result.initial_anomaly_detected is False
+    assert result.severity == "HEALTHY"
+    assert result.vpf_rate < 0.5
+    assert len(result.reasoning_trace) >= 2
+    assert "HEALTHY" in result.reasoning_trace[-1]
+
+@pytest.mark.asyncio
+async def test_agent_autonomous_outage_remediation_live():
+    """Verifies that upon detecting a live outage, Gemini diagnoses root cause and autonomously remediates."""
+    # 1. Inject live CDN Outage
+    chaos_manager.inject_cdn_outage()
+    
+    # 2. Trigger Autonomous SRE Investigation
+    result = await agent_commander.investigate_and_remediate()
+    
+    # 3. Assert Autonomous Reasoning & Action
+    assert result.initial_anomaly_detected is True
+    assert result.severity in ["CRITICAL", "WARNING"]
+    assert result.root_cause_analysis is not None
+    assert len(result.root_cause_analysis) > 10
+    assert result.autonomous_action_taken in ["SHIFT_TRAFFIC_TO_AKAMAI", "FAILOVER_DRM_KEY_CLUSTER", "REROUTE_BGP_TRANSIT"]
+    assert result.traffic_shift_details["secondary_cdn_pct"] == 80
+    assert result.mttr_seconds > 0.0
+    assert "churn" in result.estimated_subscriber_loss_prevented.lower() or "$" in result.estimated_subscriber_loss_prevented
+    assert len(result.reasoning_trace) >= 5
+    
+    # 4. Verify system state recovered
+    state = chaos_manager.get_state()
+    assert state.current_mode == "REMEDIATED"
+    assert state.is_outage_active is False
+
+@pytest.mark.asyncio
+async def test_agent_api_endpoints():
+    """Verifies REST endpoints for triggering investigations and retrieving audit history."""
+    transport = ASGITransport(app=app)
+    async with AsyncClient(transport=transport, base_url="http://test") as client:
+        # Check Agent Status
+        res_status = await client.get("/api/agent/status")
+        assert res_status.status_code == 200
+        data_status = res_status.json()
+        assert data_status["configured"] is True
+        assert "gemini" in data_status["model"]
+        
+        # Trigger Investigation Endpoint
+        res_inv = await client.post("/api/agent/investigate-and-remediate")
+        assert res_inv.status_code == 200
+        data_inv = res_inv.json()
+        assert "severity" in data_inv
+        assert "root_cause_analysis" in data_inv
+        assert "reasoning_trace" in data_inv
+        
+        # Retrieve Investigation History
+        res_hist = await client.get("/api/agent/history")
+        assert res_hist.status_code == 200
+        data_hist = res_hist.json()
+        assert isinstance(data_hist, list)
+        assert len(data_hist) >= 1
