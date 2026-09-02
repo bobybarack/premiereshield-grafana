@@ -73,5 +73,6 @@ We learned how powerful the Model Context Protocol (MCP) and Grafana Cloud ecosy
 ## 8. Devpost Metadata Fields
 
 * **Track:** Grafana Labs Track
+* **GitHub Repository:** https://github.com/bobybarack/premiereshield-grafana
 * **Built With:** `google-cloud`, `gemini-api`, `google-adk`, `google-genai`, `grafana-cloud`, `prometheus`, `loki`, `fastapi`, `python`, `docker`, `cloud-run`, `pytest`
 * **Open Source License:** Apache 2.0 (OSI-approved, visible in repository root `LICENSE`)
