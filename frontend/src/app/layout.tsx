@@ -15,10 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "PremiereShield // Autonomous OTT Streaming Incident Commander",
   description:
-    "Real-time autonomous OTT video streaming incident commander powered by Gemini Enterprise and Grafana Cloud MCP. Self-heals 4K stream delivery failures in under 5 seconds.",
-  icons: {
-    icon: "/favicon.ico",
-  },
+    "Autonomous OTT video streaming incident commander. Detects, diagnoses, and self-heals live 4K stream delivery bottlenecks in real time.",
 };
 
 export default function RootLayout({
@@ -27,11 +24,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} dark antialiased`}
-    >
-      <body className="min-h-[100dvh] bg-[#07090e] text-[#f0f4f8] overflow-x-hidden">
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className="min-h-[100dvh] bg-[#f8f9fb] text-[#111827] antialiased">
         {children}
       </body>
     </html>

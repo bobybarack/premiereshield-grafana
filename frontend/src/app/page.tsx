@@ -1,46 +1,43 @@
 "use client";
 
 import React, { useState, useEffect, useCallback } from "react";
-import { HeaderNav } from "../components/HeaderNav";
-import { MetricTickerGrid } from "../components/MetricTickerGrid";
-import { LiveStreamPlayer } from "../components/LiveStreamPlayer";
-import { CdnTrafficVisualizer } from "../components/CdnTrafficVisualizer";
-import { GrafanaTelemetryPanel } from "../components/GrafanaTelemetryPanel";
-import { GeminiAgentTerminal } from "../components/GeminiAgentTerminal";
-import { ChaosControlDock } from "../components/ChaosControlDock";
-import { PostMortemModal } from "../components/PostMortemModal";
+import { TopBar } from "../components/TopBar";
+import { MetricCardsRow } from "../components/MetricCardsRow";
+import { PlaybackChartCard } from "../components/PlaybackChartCard";
+import { LivePlayerCard } from "../components/LivePlayerCard";
+import { SreCommanderCard } from "../components/SreCommanderCard";
+import { CdnSplitCard } from "../components/CdnSplitCard";
+import { LiveLogsCard } from "../components/LiveLogsCard";
+import { ChaosDock } from "../components/ChaosDock";
+import { IncidentDrawer } from "../components/IncidentDrawer";
 import { ApiService } from "../services/api";
 import {
   TelemetrySnapshot,
   InvestigationResult,
-  GrafanaHealth,
   ChaosState,
 } from "../types/telemetry";
 
 export default function PremiereShieldDashboard() {
   const [telemetry, setTelemetry] = useState<TelemetrySnapshot | null>(null);
   const [history, setHistory] = useState<TelemetrySnapshot[]>([]);
-  const [grafanaHealth, setGrafanaHealth] = useState<GrafanaHealth | null>(null);
   const [chaosState, setChaosState] = useState<ChaosState | null>(null);
   const [investigations, setInvestigations] = useState<InvestigationResult[]>([]);
   const [isInvestigating, setIsInvestigating] = useState<boolean>(false);
   const [isActionLoading, setIsActionLoading] = useState<boolean>(false);
-  const [isPostMortemOpen, setIsPostMortemOpen] = useState<boolean>(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
 
   // Initial Data Fetch
   const fetchInitialData = useCallback(async () => {
     try {
-      const [cur, hist, health, state, invHist] = await Promise.allSettled([
+      const [cur, hist, state, invHist] = await Promise.allSettled([
         ApiService.getCurrentTelemetry(),
         ApiService.getTelemetryHistory(),
-        ApiService.getGrafanaHealth(),
         ApiService.getChaosState(),
         ApiService.getInvestigationHistory(),
       ]);
 
       if (cur.status === "fulfilled") setTelemetry(cur.value);
       if (hist.status === "fulfilled") setHistory(hist.value);
-      if (health.status === "fulfilled") setGrafanaHealth(health.value);
       if (state.status === "fulfilled") setChaosState(state.value);
       if (invHist.status === "fulfilled") setInvestigations(invHist.value);
     } catch (err) {
@@ -64,7 +61,6 @@ export default function PremiereShieldDashboard() {
         });
       },
       () => {
-        // Fallback polling if SSE disconnects
         ApiService.getCurrentTelemetry()
           .then((snap) => {
             setTelemetry(snap);
@@ -156,48 +152,43 @@ export default function PremiereShieldDashboard() {
   const isOutage = telemetry?.is_outage ?? false;
 
   return (
-    <main className="min-h-[100dvh] w-full bg-[#07090e] text-[#f0f4f8] cyber-grid radar-glow pb-16">
-      {/* Top Header Navigation */}
-      <HeaderNav
-        telemetry={telemetry}
-        grafanaHealth={grafanaHealth}
-        onOpenPostMortem={() => setIsPostMortemOpen(true)}
-        investigationCount={investigations.length}
-      />
+    <div className="min-h-[100dvh] bg-[#f8f9fb]">
+      {/* Main Full-Width Container */}
+      <main className="max-w-[1600px] mx-auto p-4 sm:p-6 lg:p-8 space-y-5">
+        {/* Top Header with Brand & Incident Notification Bell */}
+        <TopBar
+          telemetry={telemetry}
+          investigationCount={investigations.length}
+          onOpenNotifications={() => setIsDrawerOpen(true)}
+        />
 
-      {/* Main Dashboard Body Container */}
-      <div className="max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-8 pt-6 space-y-5">
-        {/* 1. Real-Time Telemetry Tickers */}
-        <MetricTickerGrid current={telemetry} history={history} />
+        {/* 1. Top 5 Real-Time Metric Cards */}
+        <MetricCardsRow current={telemetry} />
 
-        {/* 2. Asymmetric Central Grid: Live Stream & Multi-CDN vs. Grafana Real-Time Charts */}
+        {/* 2. Central Row: Playback Failure Chart (65%) + Live Player Viewport (35%) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
-          {/* Left Column (7 Cols): Video Player & Traffic Shift Visualizer */}
-          <div className="lg:col-span-7 flex flex-col gap-5">
-            <LiveStreamPlayer telemetry={telemetry} />
-            <CdnTrafficVisualizer telemetry={telemetry} />
+          <div className="lg:col-span-7">
+            <PlaybackChartCard telemetry={telemetry} history={history} />
           </div>
-
-          {/* Right Column (5 Cols): Grafana Prometheus PromQL Charts & Loki Log Stream */}
-          <div className="lg:col-span-5 flex flex-col">
-            <GrafanaTelemetryPanel
-              telemetry={telemetry}
-              history={history}
-              grafanaHealth={grafanaHealth}
-            />
+          <div className="lg:col-span-5">
+            <LivePlayerCard telemetry={telemetry} />
           </div>
         </div>
 
-        {/* 3. Gemini Enterprise Autonomous SRE Commander Terminal */}
-        <GeminiAgentTerminal
-          latestInvestigation={latestInvestigation}
-          isInvestigating={isInvestigating}
-          onTriggerInvestigation={handleTriggerAutonomousInvestigation}
-          isOutage={isOutage}
-        />
+        {/* 3. Bottom Row: SRE Commander (33%) + CDN Traffic Split (33%) + Live Logs Stream (33%) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <SreCommanderCard
+            latestInvestigation={latestInvestigation}
+            isInvestigating={isInvestigating}
+            onTriggerInvestigation={handleTriggerAutonomousInvestigation}
+            isOutage={isOutage}
+          />
+          <CdnSplitCard telemetry={telemetry} />
+          <LiveLogsCard telemetry={telemetry} history={history} />
+        </div>
 
-        {/* 4. Chaos Injection & SRE Action Control Dock */}
-        <ChaosControlDock
+        {/* 4. Chaos Injection & Self-Healing Control Dock */}
+        <ChaosDock
           chaosState={chaosState}
           onInjectCdnOutage={handleInjectCdnOutage}
           onInjectDrmTimeout={handleInjectDrmTimeout}
@@ -206,14 +197,14 @@ export default function PremiereShieldDashboard() {
           onReset={handleResetChaos}
           isLoading={isActionLoading || isInvestigating}
         />
-      </div>
+      </main>
 
-      {/* Post-Mortem & Incident History Modal */}
-      <PostMortemModal
-        isOpen={isPostMortemOpen}
-        onClose={() => setIsPostMortemOpen(false)}
+      {/* Slide-over Incident Log Drawer */}
+      <IncidentDrawer
+        isOpen={isDrawerOpen}
+        onClose={() => setIsDrawerOpen(false)}
         investigations={investigations}
       />
-    </main>
+    </div>
   );
 }

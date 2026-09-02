@@ -2,74 +2,48 @@
 
 @layer base {
   :root {
-    --background: #07090e;
-    --foreground: #f0f4f8;
-    --card-bg: rgba(12, 16, 23, 0.85);
-    --card-border: rgba(255, 255, 255, 0.08);
-    --card-hover: rgba(255, 255, 255, 0.12);
+    --background: #f8f9fb;
+    --foreground: #111827;
+    --card-bg: #ffffff;
+    --card-border: #e5e7eb;
+    --accent-green: #10b981;
+    --accent-green-light: #ecfdf5;
+    --accent-green-border: #a7f3d0;
   }
 
   body {
-    background-color: #07090e;
-    color: #f0f4f8;
+    background-color: var(--background);
+    color: var(--foreground);
     font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     overflow-x: hidden;
     min-height: 100dvh;
-    selection-background-color: #00d2ff;
-    selection-color: #07090e;
   }
 }
 
-/* Custom Scrollbar */
+/* Custom Minimalist Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #07090e;
+  background: #f1f3f5;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
+  background: #d1d5db;
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: #9ca3af;
 }
 
-/* Scanline and Grid Overlay */
-.cyber-grid {
-  background-size: 32px 32px;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+.subtle-card-shadow {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
 }
 
-.radar-glow {
-  background: radial-gradient(circle at 50% 0%, rgba(0, 210, 255, 0.08) 0%, rgba(99, 102, 241, 0.04) 40%, transparent 70%);
+.hover-card-lift {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
-.alert-pulse-red {
-  animation: pulseRed 2s infinite ease-in-out;
-}
-
-@keyframes pulseRed {
-  0%, 100% {
-    box-shadow: 0 0 0 0 rgba(255, 51, 102, 0.4);
-  }
-  50% {
-    box-shadow: 0 0 20px 4px rgba(255, 51, 102, 0.2);
-  }
-}
-
-.alert-pulse-green {
-  animation: pulseGreen 2.5s infinite ease-in-out;
-}
-
-@keyframes pulseGreen {
-  0%, 100% {
-    box-shadow: 0 0 0 0 rgba(0, 245, 160, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 16px 2px rgba(0, 245, 160, 0.15);
-  }
+.hover-card-lift:hover {
+  box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.06);
+  transform: translateY(-1px);
 }
