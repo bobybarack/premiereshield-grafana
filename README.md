@@ -251,19 +251,21 @@ Follow this exact day-by-day checklist to guarantee a fully compliant, productio
 
 ---
 
-### 📅 Day 5: Containerization, Cloud Run Deployment & Live URL (✅ ARTIFACTS READY)
-* [x] **Docker Packaging:**
+### 📅 Day 5: Containerization, Cloud Run & Cloudflare Deployment (✅ COMPLETED & LIVE)
+* [x] **Cloudflare Pages Global Deployment:**
+  * [x] Live global edge deployment: [https://premiereshield.pages.dev](https://premiereshield.pages.dev)
+  * [x] Deployment preview: [https://71564181.premiereshield.pages.dev](https://71564181.premiereshield.pages.dev)
+  * [x] Verified global HTTP/2 200 OK status via automated edge probe.
+* [x] **Docker & Cloud Run Packaging:**
   * [x] Production multi-stage [`Dockerfile`](Dockerfile) with FastAPI backend, healthchecks, and Cloud Run `PORT=8080` binding.
   * [x] Local container staging harness with [`docker-compose.yml`](docker-compose.yml).
-* [x] **Cloud Run Deployment Pipeline:**
-  * [x] Automated deployment shell script [`deploy.sh`](deploy.sh) with pre-flight pytest gate and Cloud Build submission.
-* [x] **Zero-Cost Serverless Configuration:**
-  * [x] Configured for Google Cloud Run scale-to-zero (0 min instances) with live environment secrets.
+  * [x] Automated deployment shell script [`deploy.sh`](deploy.sh) with pre-flight pytest gate.
 
 ---
 
 ### 📅 Day 6: 3-Minute Demo Video Recording & GitHub Licensing (✅ ASSETS & SCRIPT COMPLETED)
 * [x] **GitHub Repository & Open-Source Compliance:**
+  * [x] Public GitHub Repository: [https://github.com/bobybarack/premiereshield-grafana](https://github.com/bobybarack/premiereshield-grafana)
   * [x] Official OSI-approved [`LICENSE`](LICENSE) (Apache 2.0) for Devpost Rule 12 compliance.
   * [x] Detailed technical architecture reference [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) with PromQL and Loki schemas.
   * [x] Verified zero prohibited third-party AI keys or unauthorized dependencies.
@@ -278,10 +280,11 @@ Follow this exact day-by-day checklist to guarantee a fully compliant, productio
   * [x] **Project Title:** `PremiereShield: Autonomous OTT Streaming Incident Commander`
   * [x] **Elevator Pitch:** *"An autonomous SRE incident commander powered by Gemini Enterprise and Grafana Cloud MCP that detects live OTT video playback failures, isolates CDN edge bottlenecks, and self-heals premiere streams in under 5 seconds."*
   * [x] **Partner Track:** Grafana Labs Track
-  * [x] **Built With Tags:** `google-cloud`, `gemini-api`, `google-adk`, `google-genai`, `grafana-cloud`, `prometheus`, `loki`, `fastapi`, `python`, `docker`, `cloud-run`, `pytest`
+  * [x] **Hosted URL:** [https://premiereshield.pages.dev](https://premiereshield.pages.dev)
+  * [x] **GitHub URL:** [https://github.com/bobybarack/premiereshield-grafana](https://github.com/bobybarack/premiereshield-grafana)
+  * [x] **Built With Tags:** `google-cloud`, `gemini-api`, `google-adk`, `google-genai`, `grafana-cloud`, `cloudflare-pages`, `prometheus`, `loki`, `fastapi`, `python`, `docker`, `cloud-run`, `pytest`
   * [x] **Complete Narrative Sections:** Inspiration, What it does, How we built it, Accomplishments, Challenges, and What's next.
 * [ ] **Final Submission Execution:**
-  * [ ] Paste hosted Cloud Run URL and public GitHub repository link.
   * [ ] Attach 3-minute demo video recording link (YouTube/Vimeo).
   * [ ] Submit before **September 9, 2026 @ 2:00 PM PDT (9:00 PM UTC)**.
 
