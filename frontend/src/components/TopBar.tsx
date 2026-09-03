@@ -35,7 +35,7 @@ export function TopBar({
         <div>
           <div className="flex items-center gap-2">
             <h1 className="text-base font-bold text-gray-900 tracking-tight">
-              PremiereShield
+              CONTINUITY
             </h1>
             <span className="text-gray-300">•</span>
             <span className="text-xs font-semibold text-gray-700 bg-gray-100 px-2 py-0.5 rounded-md">
@@ -43,7 +43,7 @@ export function TopBar({
             </span>
           </div>
           <p className="text-xs text-gray-500 font-medium mt-0.5">
-            Autonomous OTT Streaming SRE Incident Commander
+            Autonomous Stream Continuity Incident Commander
           </p>
         </div>
       </div>

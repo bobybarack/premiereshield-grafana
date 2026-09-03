@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "PremiereShield // Autonomous OTT Streaming Incident Commander",
+  title: "CONTINUITY // Autonomous Stream Incident Commander",
   description:
-    "Autonomous OTT video streaming incident commander. Detects, diagnoses, and self-heals live 4K stream delivery bottlenecks in real time.",
+    "Autonomous stream continuity and SRE incident commander powered by Gemini Enterprise and Grafana Cloud MCP. Detects, diagnoses, and self-heals live 4K premiere streams in real time.",
 };
 
 export default function RootLayout({

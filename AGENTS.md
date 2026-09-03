@@ -1,4 +1,4 @@
-# Repository Guidelines: PremiereShield
+# Repository Guidelines: CONTINUITY
 
 > **Autonomous Execution**: Whatever action you can do yourself, do yourself. This includes starting apps, executing test suites, verifying builds, and inspecting runtime outputs before reporting back. Do not prompt the user to run commands you can execute.
 
@@ -14,7 +14,7 @@
 
 ## Project Structure & Module Organization
 
-This repository manages PremiereShield (Autonomous OTT Streaming SRE Incident Commander):
+This repository manages CONTINUITY (Autonomous Stream Continuity Incident Commander):
 - `backend/config.py`: Environment configuration and typed secret loader.
 - `backend/services/chaos.py`: Thread-safe chaos state machine simulating CDN outages, DRM timeouts, and ISP peering drops.
 - `backend/services/telemetry.py`: Real-time streaming QoS calculator with native Prometheus CollectorRegistry exporter.

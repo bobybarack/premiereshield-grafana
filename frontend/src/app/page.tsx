@@ -17,7 +17,7 @@ import {
   ChaosState,
 } from "../types/telemetry";
 
-export default function PremiereShieldDashboard() {
+export default function ContinuityDashboard() {
   const [telemetry, setTelemetry] = useState<TelemetrySnapshot | null>(null);
   const [history, setHistory] = useState<TelemetrySnapshot[]>([]);
   const [chaosState, setChaosState] = useState<ChaosState | null>(null);

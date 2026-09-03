@@ -1,4 +1,4 @@
-# PremiereShield: Autonomous OTT Streaming Incident Commander
+# CONTINUITY: Autonomous Stream Continuity Incident Commander
 
 **Partner Track:** Grafana Labs Track  
 **Core Technologies:** Grafana Cloud MCP Server (`grafana/mcp-grafana`), Google ADK / Gemini 3.1 Enterprise, Google Cloud Run, Prometheus, Loki  
@@ -15,7 +15,7 @@ During major blockbuster film releases on premium streaming platforms (e.g., Dis
 
 Traditional observability tools (Conviva, Mux Data, Datadog) are **purely passive**: they generate noisy alert storms that human SRE engineers take 30–45 minutes to triage and remediate.
 
-**PremiereShield** is an autonomous AI SRE Incident Commander powered by **Gemini Enterprise** and the official **Grafana Cloud Model Context Protocol (MCP) Server**. It bridges the gap between telemetry and automated action:
+**CONTINUITY** is an autonomous AI SRE Incident Commander powered by **Gemini Enterprise** and the official **Grafana Cloud Model Context Protocol (MCP) Server**. It bridges the gap between telemetry and automated action:
 1. Continuously queries streaming telemetry across 60+ Grafana MCP tools.
 2. Identifies anomalous drops in video bitrates and spikes in VPF via PromQL.
 3. Performs root-cause log isolation in Loki across distributed edge CDN nodes.
@@ -31,7 +31,7 @@ Traditional observability tools (Conviva, Mux Data, Datadog) are **purely passiv
 +---------------------------------------------------------------------------------------------------------------+
 |                                      OTT STREAMING OBSERVABILITY COMPARISON                                   |
 +---------------------+-----------------------------+------------------------------------+----------------------+
-| Capability          | Legacy Tools (Conviva/Mux)  | Standard SRE (Datadog/PagerDuty)   | PremiereShield (AI)  |
+| Capability          | Legacy Tools (Conviva/Mux)  | Standard SRE (Datadog/PagerDuty)   | CONTINUITY (AI)       |
 +---------------------+-----------------------------+------------------------------------+----------------------+
 | Data Ingestion      | Client SDK Player telemetry | Server/Infra metrics               | Unified Grafana Stack|
 | Telemetry Access    | Proprietary Dashboards      | Isolated metric graphs             | 60+ Grafana MCP Tools|
@@ -77,7 +77,7 @@ Traditional observability tools (Conviva, Mux Data, Datadog) are **purely passiv
 |  +---------------------------------------------------------------------------------------------+  |
 |                                 |                                                                 |
 |                                 v (Immediate Stream Recovery)                                     |
-|  [PREMIERESHIELD COMMAND CENTER WEB APP (Hosted on Cloud Run)]                                    |
+|  [CONTINUITY COMMAND CENTER WEB APP (Hosted on Cloudflare / Cloud Run)]                             |
 |                                                                                                   |
 +---------------------------------------------------------------------------------------------------+
 ```
@@ -86,7 +86,7 @@ Traditional observability tools (Conviva, Mux Data, Datadog) are **purely passiv
 
 ## 4. Grafana Cloud MCP Tool Bindings & Telemetry Schema
 
-PremiereShield directly binds to Grafana's official MCP tool suite:
+CONTINUITY directly binds to Grafana's official MCP tool suite:
 
 1. `grafana_query_metrics(promql)`:
    * Queries real-time Video Playback Failures: `rate(ott_video_playback_failures_total[1m])`
@@ -277,8 +277,8 @@ Follow this exact day-by-day checklist to guarantee a fully compliant, productio
 
 ### 📅 Day 7: Devpost Submission & Final Verification (✅ SUBMISSION DOSSIER READY)
 * [x] **Devpost Submission Package (`docs/DEVPOST_SUBMISSION.md`):**
-  * [x] **Project Title:** `PremiereShield: Autonomous OTT Streaming Incident Commander`
-  * [x] **Elevator Pitch:** *"An autonomous SRE incident commander powered by Gemini Enterprise and Grafana Cloud MCP that detects live OTT video playback failures, isolates CDN edge bottlenecks, and self-heals premiere streams in under 5 seconds."*
+  * [x] **Project Title:** `CONTINUITY: Autonomous Stream Continuity for Hollywood's Biggest Nights`
+  * [x] **Elevator Pitch:** *"An autonomous stream continuity SRE incident commander powered by Gemini Enterprise and Grafana Cloud MCP that detects live OTT video playback failures, isolates CDN edge bottlenecks, and self-heals blockbuster premiere streams in under 2 seconds."*
   * [x] **Partner Track:** Grafana Labs Track
   * [x] **Hosted URL:** [https://premiereshield.pages.dev](https://premiereshield.pages.dev)
   * [x] **GitHub URL:** [https://github.com/bobybarack/premiereshield-grafana](https://github.com/bobybarack/premiereshield-grafana)
@@ -296,9 +296,9 @@ Follow this exact day-by-day checklist to guarantee a fully compliant, productio
 | :--- | :--- | :--- |
 | **0:00 – 0:30** | Opening on the Command Center with a live movie playing smoothly. 4.2M viewers counter. | *"On movie premiere night, streaming platforms face massive traffic surges. A 2-minute playback failure costs millions in subscriber churn and brand damage. SRE teams typically spend 40 minutes triaging logs before taking action."* |
 | **0:30 – 1:15** | Click **Inject CDN Outage**. The video player stutters; the Grafana dashboard spikes into red. | *"Watch what happens during a real outage. We trigger a transit collapse on our primary US-East CDN. Video playback failures spike to 4.8% and viewers begin buffering."* |
-| **1:15 – 2:15** | Gemini Agent Terminal activates live. It calls Grafana MCP tools, queries PromQL, searches Loki logs, diagnoses root cause, auto-annotates the dashboard, and shifts traffic. Video instantly resumes smooth 4K playback. | *"PremiereShield intervenes autonomously. Using the Grafana Cloud MCP server, Gemini queries Prometheus and Loki, isolates the saturated edge POP, annotates the live dashboard, and shifts egress traffic to our secondary CDN. The stream recovers in under 5 seconds."* |
-| **2:15 – 2:45** | Code walkthrough showing clean Google Cloud SDK and Grafana MCP bindings. | *"Built natively on Google Cloud Run with the Gemini Enterprise Agent Platform and Grafana Cloud MCP, PremiereShield turns passive observability into proactive, autonomous resolution."* |
-| **2:45 – 3:00** | Architecture overview graphic and conclusion. | *"PremiereShield: Protecting the blockbuster premiere experience with autonomous agentic SRE. Lights. Camera. Code."* |
+| **1:15 – 2:15** | Gemini Agent Terminal activates live. It calls Grafana MCP tools, queries PromQL, searches Loki logs, diagnoses root cause, auto-annotates the dashboard, and shifts traffic. Video instantly resumes smooth 4K playback. | *"CONTINUITY intervenes autonomously. Using the Grafana Cloud MCP server, Gemini queries Prometheus and Loki, isolates the saturated edge POP, annotates the live dashboard, and shifts egress traffic to our secondary CDN. The stream recovers in under 2 seconds."* |
+| **2:15 – 2:45** | Code walkthrough showing clean Google Cloud SDK and Grafana MCP bindings. | *"Built natively on Google Cloud Run with the Gemini Enterprise Agent Platform and Grafana Cloud MCP, CONTINUITY turns passive observability into proactive, autonomous resolution."* |
+| **2:45 – 3:00** | Architecture overview graphic and conclusion. | *"CONTINUITY: Protecting the blockbuster premiere experience with autonomous agentic stream continuity. Lights. Camera. Code."* |
 
 ---
 

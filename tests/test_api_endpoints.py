@@ -17,6 +17,7 @@ async def test_root_endpoint():
         assert res.status_code == 200
         data = res.json()
         assert data["status"] == "OPERATIONAL"
+        assert "Continuity" in data["project"]
         assert "joyfuljasmine1550" in data["grafana_instance"]
         assert data["google_cloud_project"] == "premiereshield-cinema"
 

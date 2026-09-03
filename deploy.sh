@@ -2,12 +2,12 @@
 set -euo pipefail
 
 # ==============================================================================
-# PremiereShield: Google Cloud Run Automated Deployment Script
+# Continuity: Google Cloud Run Automated Deployment Script
 # ==============================================================================
 
 PROJECT_ID="premiereshield-cinema"
 REGION="us-central1"
-SERVICE_NAME="premiereshield"
+SERVICE_NAME="continuity"
 IMAGE_TAG="gcr.io/${PROJECT_ID}/${SERVICE_NAME}:latest"
 
 echo "=== Step 1: Validating Environment Configuration ==="

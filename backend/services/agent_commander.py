@@ -13,7 +13,7 @@ from services.chaos import chaos_manager
 from services.telemetry import telemetry_engine
 from services.grafana_client import grafana_client
 
-logger = logging.getLogger("premiereshield.agent")
+logger = logging.getLogger("continuity.agent")
 
 if GEMINI_API_KEY:
     os.environ["GEMINI_API_KEY"] = GEMINI_API_KEY
@@ -106,7 +106,7 @@ class AgentCommander:
         trace.append(f"[{time.strftime('%H:%M:%S')}] CRITICAL ANOMALY DETECTED: VPF threshold breached. Invoking Gemini reasoning engine...")
         
         prompt = f"""
-You are PremiereShield, the Lead Autonomous SRE AI Incident Commander for a tier-1 Hollywood OTT streaming platform.
+You are Continuity, the Lead Autonomous SRE AI Incident Commander for a tier-1 Hollywood OTT streaming platform.
 Analyze the live incident telemetry:
 
 STREAM METADATA:
@@ -206,12 +206,12 @@ Respond ONLY with valid JSON matching this schema:
         )
 
         # Step 4: Programmatically create Grafana Cloud Dashboard Annotation
-        annotation_text = f"[PremiereShield Auto-Fix]: {remediation_action} - {decision.get('root_cause_analysis')}"
+        annotation_text = f"[Continuity Auto-Fix]: {remediation_action} - {decision.get('root_cause_analysis')}"
         trace.append(f"[{time.strftime('%H:%M:%S')}] Writing visual incident annotation to Grafana Cloud live dashboard...")
         
         annotation_resp = await grafana_client.create_annotation(
             text=annotation_text,
-            tags=["premiereshield", "gemini-sre", "autonomous-remediation"]
+            tags=["continuity", "gemini-sre", "autonomous-remediation"]
         )
         annotation_id = annotation_resp.get("id") if isinstance(annotation_resp, dict) else None
 

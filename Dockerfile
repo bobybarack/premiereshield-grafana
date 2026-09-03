@@ -1,4 +1,4 @@
-# Multi-stage production container for PremiereShield (FastAPI + Gemini + Grafana Cloud MCP)
+# Multi-stage production container for Continuity (FastAPI + Gemini + Grafana Cloud MCP)
 FROM python:3.11-slim as production
 
 ENV PYTHONUNBUFFERED=1 \

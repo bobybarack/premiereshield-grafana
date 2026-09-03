@@ -28,7 +28,7 @@ class ChaosStateManager:
     def __init__(self):
         self._lock = threading.RLock()
         self.state = ChaosState()
-        self._record_event("SYSTEM_START", "PremiereShield telemetry engine initialized in NORMAL state", "INFO")
+        self._record_event("SYSTEM_START", "Continuity telemetry engine initialized in NORMAL state", "INFO")
 
     def _record_event(self, event_type: str, description: str, severity: str, details: Optional[Dict[str, Any]] = None):
         event = ChaosEvent(

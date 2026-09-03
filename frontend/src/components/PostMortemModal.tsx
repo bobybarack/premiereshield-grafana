@@ -30,7 +30,7 @@ export function PostMortemModal({
     const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(investigations, null, 2));
     const downloadAnchor = document.createElement("a");
     downloadAnchor.setAttribute("href", dataStr);
-    downloadAnchor.setAttribute("download", `premiereshield_postmortem_${Date.now()}.json`);
+    downloadAnchor.setAttribute("download", `continuity_postmortem_${Date.now()}.json`);
     document.body.appendChild(downloadAnchor);
     downloadAnchor.click();
     downloadAnchor.remove();

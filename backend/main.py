@@ -12,8 +12,8 @@ from config import (
 )
 
 app = FastAPI(
-    title="PremiereShield API",
-    description="Autonomous OTT Streaming Incident Commander Backend (Grafana Cloud MCP & Gemini)",
+    title="Continuity API",
+    description="Autonomous Stream Continuity Incident Commander (Grafana Cloud MCP & Gemini)",
     version="1.0.0"
 )
 
@@ -34,7 +34,7 @@ app.include_router(agent_router)
 @app.get("/")
 async def root_info():
     return {
-        "project": "PremiereShield: Autonomous OTT Streaming Incident Commander",
+        "project": "Continuity: Autonomous Stream Continuity Incident Commander",
         "stream": STREAM_TITLE,
         "google_cloud_project": GOOGLE_CLOUD_PROJECT,
         "grafana_instance": GRAFANA_INSTANCE_URL,

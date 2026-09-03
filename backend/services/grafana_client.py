@@ -10,7 +10,7 @@ from config import (
     GRAFANA_LOKI_UID
 )
 
-logger = logging.getLogger("premiereshield.grafana")
+logger = logging.getLogger("continuity.grafana")
 
 class GrafanaCloudClient:
     def __init__(self):
@@ -130,7 +130,7 @@ class GrafanaCloudClient:
         url = f"{self.base_url}/api/annotations"
         payload = {
             "text": text,
-            "tags": tags or ["premiereshield", "gemini-sre", "autonomous-fix"],
+            "tags": tags or ["continuity", "gemini-sre", "autonomous-fix"],
             "time": int(time.time() * 1000)
         }
         try:

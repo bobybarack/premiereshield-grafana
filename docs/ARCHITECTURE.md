@@ -1,15 +1,15 @@
-# PremiereShield: Technical Architecture & System Specification
+# CONTINUITY: Technical Architecture & System Specification
 
 ## 1. System Overview
 
-PremiereShield is an autonomous SRE Incident Commander engineered for OTT live streaming platforms. It connects real-time video player quality-of-experience (QoE) telemetry, Grafana Cloud Prometheus metrics, Loki log streams, and Google Cloud Gemini Enterprise into a closed-loop, self-healing pipeline.
+CONTINUITY is an autonomous stream continuity SRE Incident Commander engineered for OTT live streaming platforms. It connects real-time video player quality-of-experience (QoE) telemetry, Grafana Cloud Prometheus metrics, Loki log streams, and Google Cloud Gemini Enterprise into a closed-loop, self-healing pipeline.
 
 ```
 +---------------------------------------------------------------------------------------------------+
-|                                 PREMIERESHIELD SYSTEM ARCHITECTURE                                |
+|                                   CONTINUITY SYSTEM ARCHITECTURE                                  |
 +---------------------------------------------------------------------------------------------------+
 |                                                                                                   |
-|  [4.2M CONCURRENT OTT STREAM CLIENTS]                                                             |
+|  [4.28M CONCURRENT OTT STREAM CLIENTS]                                                            |
 |  (HLS / DASH Video Players streaming 'Dune: Part Three Premiere')                                 |
 |                                 |                                                                 |
 |                                 v (Pushes Telemetry & Edge Logs)                                  |
@@ -29,11 +29,11 @@ PremiereShield is an autonomous SRE Incident Commander engineered for OTT live s
 |  |  Step 2: Deep Dives into Loki -> Calls `grafana_search_logs` (Finds saturated transit ISP) |  |
 |  |  Step 3: Documents Incident  -> Calls `grafana_create_annotation` & `grafana_create_incident`|
 |  |  Step 4: Autonomous Healing   -> Calls Cloud Run Edge API to shift traffic to Akamai CDN    |  |
-|  |  Step 5: Synthesizes Post-Mortem -> Generates executive root-cause PDF summary             |  |
+|  |  Step 5: Synthesizes Post-Mortem -> Generates executive root-cause report                   |  |
 |  +---------------------------------------------------------------------------------------------+  |
 |                                 |                                                                 |
 |                                 v (Immediate Stream Recovery)                                     |
-|  [PREMIERESHIELD COMMAND CENTER WEB APP (Hosted on Cloud Run)]                                    |
+|  [CONTINUITY COMMAND CENTER WEB APP (Hosted on Cloudflare / Cloud Run)]                           |
 |                                                                                                   |
 +---------------------------------------------------------------------------------------------------+
 ```

@@ -41,9 +41,9 @@ export function Sidebar({
           </div>
           <div>
             <h1 className="text-sm font-bold text-gray-900 tracking-tight">
-              PremiereShield
+              CONTINUITY
             </h1>
-            <p className="text-[11px] text-gray-500 font-medium">OTT Incident SRE</p>
+            <p className="text-[11px] text-gray-500 font-medium">Stream Continuity SRE</p>
           </div>
         </div>
 

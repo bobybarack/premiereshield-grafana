@@ -1,11 +1,11 @@
 version: '3.8'
 
 services:
-  premiereshield-api:
+  continuity-api:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: premiereshield-service
+    container_name: continuity-service
     ports:
       - "8080:8080"
     env_file:
