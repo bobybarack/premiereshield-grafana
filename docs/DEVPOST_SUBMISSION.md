@@ -1,7 +1,7 @@
 # Devpost Submission Dossier: CONTINUITY
 
-**Project Title:** CONTINUITY: Autonomous Stream Continuity for Hollywood's Biggest Nights  
-**Tagline / Elevator Pitch:** An autonomous stream continuity SRE incident commander powered by Gemini Enterprise and Grafana Cloud MCP that detects live OTT video playback failures, isolates edge CDN bottlenecks, and self-heals blockbuster premiere streams in under 2 seconds.  
+**Project Title:** CONTINUITY: Autonomous SRE for Hollywood Premiere Nights  
+**Tagline / Elevator Pitch:** Autonomous stream continuity SRE powered by Gemini & Grafana Cloud MCP. Isolates edge CDN bottlenecks and self-heals live blockbuster premiere streams in under 2 seconds.  
 **Partner Track:** Grafana Labs Track  
 
 ---
