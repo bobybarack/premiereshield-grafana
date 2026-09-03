@@ -50,11 +50,11 @@ Traditional observability tools (Conviva, Mux Data, Datadog) are **purely passiv
 
 ```
 +---------------------------------------------------------------------------------------------------+
-|                                 PREMIERESHIELD SYSTEM ARCHITECTURE                                |
+|                                   CONTINUITY SYSTEM ARCHITECTURE                                  |
 +---------------------------------------------------------------------------------------------------+
 |                                                                                                   |
-|  [4.2M CONCURRENT OTT STREAM CLIENTS]                                                             |
-|  (HLS / DASH Video Players streaming 'Dune: Part Three Premiere')                                 |
+|  [4.28M CONCURRENT OTT STREAM CLIENTS]                                                            |
+|  (HLS / DASH Video Players streaming 'Spider-Man: Brand New Day Premiere')                        |
 |                                 |                                                                 |
 |                                 v (Pushes Telemetry & Edge Logs)                                  |
 |  +---------------------------------------------------------------------------------------------+  |
@@ -105,10 +105,10 @@ CONTINUITY directly binds to Grafana's official MCP tool suite:
 
 ```
 +==================================================================================================+
-|  🛡️ PREMIERESHIELD // AUTONOMOUS OTT STREAMING INCIDENT COMMANDER                [STATUS: 🟢 LIVE]|
+|  CONTINUITY // AUTONOMOUS STREAM CONTINUITY INCIDENT COMMANDER                     [STATUS: LIVE]|
 |  Grafana Cloud MCP  |  Prometheus & Loki  |  Gemini Enterprise Agent  |  Google Cloud Run        |
 +==================================================================================================+
-| [HEADER: Stream: 'Dune 3: World Premiere' | Viewers: 4,281,902 | Avg Bitrate: 14.8 Mbps (4K UHD)] |
+| [HEADER: Stream: 'Spider-Man: Brand New Day' | Viewers: 4,281,902 | Avg Bitrate: 14.8 Mbps (4K)] |
 +---------------------------------------------------+----------------------------------------------+
 | 🎥 LIVE STREAM MONITOR (CLIENT VIEW)              | 📊 GRAFANA REAL-TIME TELEMETRY & PROMETHEUS  |
 |                                                   |                                              |
@@ -240,7 +240,7 @@ Follow this exact day-by-day checklist to guarantee a fully compliant, productio
 
 ### 📅 Day 4: Studio Command Center Full-Stack Web UI (✅ COMPLETED & RUNNING)
 * [x] **Split-Screen Dashboard Layout (`frontend/` at `http://localhost:3001`):**
-  * [x] Left Column: 4K HLS/MP4 sample video stream player ('Dune: Part Three Premiere') with live buffer health monitor.
+  * [x] Left Column: 4K HLS/MP4 sample video stream player ('Spider-Man: Brand New Day Premiere') with live buffer health monitor.
   * [x] Right Column: Live Prometheus metric cards (VPF rate %, CDN latency ms, DRM handshake ms, buffer health s).
   * [x] Middle Section: Real-time Gemini SRE Terminal showing transparent tool invocation and multi-step reasoning logs.
   * [x] Bottom Bar: Interactive Chaos Simulator Buttons (`Inject CDN Outage`, `Inject DRM Timeout`, `Inject ISP Peering Drop`, `Autonomous Auto-Fix`, `Reset to Normal`).

@@ -10,7 +10,7 @@ CONTINUITY is an autonomous stream continuity SRE Incident Commander engineered 
 +---------------------------------------------------------------------------------------------------+
 |                                                                                                   |
 |  [4.28M CONCURRENT OTT STREAM CLIENTS]                                                            |
-|  (HLS / DASH Video Players streaming 'Dune: Part Three Premiere')                                 |
+|  (HLS / DASH Video Players streaming 'Spider-Man: Brand New Day Premiere')                        |
 |                                 |                                                                 |
 |                                 v (Pushes Telemetry & Edge Logs)                                  |
 |  +---------------------------------------------------------------------------------------------+  |
