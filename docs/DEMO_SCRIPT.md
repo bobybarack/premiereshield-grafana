@@ -31,14 +31,14 @@
 
 ## Detailed Teleprompter Script
 
-### Section 1: The Personal Premiere Heartbreak (0:00 – 0:30)
+### Section 1: Why Premiere Night Matters (0:00 – 0:30)
 * **Visual:** Full-screen capture of the CONTINUITY Studio Command Center. The 4K stream for 'Spider-Man: Brand New Day (World Premiere)' is playing cleanly. The top ticker reads `Viewers: 4,281,900 | Buffer Health: 28.5s | Bitrate: 14.8 Mbps | VPF: 0.18%`.
 * **Voiceover:**
-  > "For three years, I waited for the midnight premiere of Spider-Man: Brand New Day. Lights off, soundbar dialed up, popcorn ready. The countdown hit zero, Peter Parker leaped into free-fall—and the screen froze on a brutal buffering wheel: Error 502.
+  > "After months of nonstop engineering work, Friday night was the one release I had blocked off all summer: the midnight premiere of Spider-Man: Brand New Day.
   > 
-  > For 42 minutes, I sat in the dark staring at an error screen while human SREs scrambled across 14 dashboard tabs on an emergency bridge. That night, my premiere was stolen.
+  > But five minutes in, the stream froze on a buffering spinner: Error 502. For 40 minutes, I sat staring at an error screen while on-call SREs scrambled across dozens of dashboard tabs.
   > 
-  > In filmmaking, continuity is the sacred promise that nothing breaks the immersion. In streaming, continuity is zero downtime. That is why I built CONTINUITY: an autonomous SRE incident commander powered by Google Cloud Gemini Enterprise and Grafana Cloud MCP."
+  > In filmmaking, continuity is the sacred craft of making sure no flaw breaks the illusion. In streaming, continuity is zero downtime. That is why I built CONTINUITY: an autonomous SRE incident commander powered by Google Cloud Gemini Enterprise and Grafana Cloud MCP."
 
 ---
 
