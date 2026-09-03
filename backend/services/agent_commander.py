@@ -22,8 +22,9 @@ if GEMINI_API_KEY:
 FALLBACK_MODELS = [
     GEMINI_MODEL,
     "models/gemini-3.7-flash",
-    "models/gemini-3.5-flash",
-    "models/gemini-2.5-flash"
+    "models/gemini-3.8-flash",
+    "models/gemini-3.6-flash",
+    "models/gemini-3.5-flash"
 ]
 
 class InvestigationResult(BaseModel):
@@ -157,7 +158,7 @@ Respond ONLY with valid JSON matching this schema:
                         )
                     )
 
-                response = await asyncio.wait_for(asyncio.to_thread(_sync_generate), timeout=4.0)
+                response = await asyncio.wait_for(asyncio.to_thread(_sync_generate), timeout=7.0)
                 decision = json.loads(response.text)
                 trace.append(f"[{time.strftime('%H:%M:%S')}] Gemini Model [{model}] reasoning completed successfully.")
                 break
