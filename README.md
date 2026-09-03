@@ -253,8 +253,8 @@ Follow this exact day-by-day checklist to guarantee a fully compliant, productio
 
 ### 📅 Day 5: Containerization, Cloud Run & Cloudflare Deployment (✅ COMPLETED & LIVE)
 * [x] **Cloudflare Pages Global Deployment:**
-  * [x] Live global edge deployment: [https://premiereshield.pages.dev](https://premiereshield.pages.dev)
-  * [x] Deployment preview: [https://71564181.premiereshield.pages.dev](https://71564181.premiereshield.pages.dev)
+  * [x] Live global edge deployment: [https://continuity-sre.pages.dev](https://continuity-sre.pages.dev)
+  * [x] Deployment preview: [https://continuity-sre.pages.dev](https://continuity-sre.pages.dev)
   * [x] Verified global HTTP/2 200 OK status via automated edge probe.
 * [x] **Docker & Cloud Run Packaging:**
   * [x] Production multi-stage [`Dockerfile`](Dockerfile) with FastAPI backend, healthchecks, and Cloud Run `PORT=8080` binding.
@@ -265,7 +265,7 @@ Follow this exact day-by-day checklist to guarantee a fully compliant, productio
 
 ### 📅 Day 6: 3-Minute Demo Video Recording & GitHub Licensing (✅ ASSETS & SCRIPT COMPLETED)
 * [x] **GitHub Repository & Open-Source Compliance:**
-  * [x] Public GitHub Repository: [https://github.com/bobybarack/premiereshield-grafana](https://github.com/bobybarack/premiereshield-grafana)
+  * [x] Public GitHub Repository: [https://github.com/bobybarack/continuity-sre](https://github.com/bobybarack/continuity-sre)
   * [x] Official OSI-approved [`LICENSE`](LICENSE) (Apache 2.0) for Devpost Rule 12 compliance.
   * [x] Detailed technical architecture reference [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) with PromQL and Loki schemas.
   * [x] Verified zero prohibited third-party AI keys or unauthorized dependencies.
@@ -280,8 +280,8 @@ Follow this exact day-by-day checklist to guarantee a fully compliant, productio
   * [x] **Project Title:** `CONTINUITY: Autonomous SRE for Hollywood Premiere Nights`
   * [x] **Elevator Pitch:** *"Autonomous stream continuity SRE powered by Gemini & Grafana Cloud MCP. Isolates edge CDN bottlenecks and self-heals live blockbuster premiere streams in under 2 seconds."*
   * [x] **Partner Track:** Grafana Labs Track
-  * [x] **Hosted URL:** [https://premiereshield.pages.dev](https://premiereshield.pages.dev)
-  * [x] **GitHub URL:** [https://github.com/bobybarack/premiereshield-grafana](https://github.com/bobybarack/premiereshield-grafana)
+  * [x] **Hosted URL:** [https://continuity-sre.pages.dev](https://continuity-sre.pages.dev)
+  * [x] **GitHub URL:** [https://github.com/bobybarack/continuity-sre](https://github.com/bobybarack/continuity-sre)
   * [x] **Built With Tags:** `google-cloud`, `gemini-api`, `google-adk`, `google-genai`, `grafana-cloud`, `cloudflare-pages`, `prometheus`, `loki`, `fastapi`, `python`, `docker`, `cloud-run`, `pytest`
   * [x] **Complete Narrative Sections:** Inspiration, What it does, How we built it, Accomplishments, Challenges, and What's next.
 * [ ] **Final Submission Execution:**
