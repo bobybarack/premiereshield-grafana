@@ -30,4 +30,4 @@ HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
     CMD curl -f http://localhost:${PORT}/ || exit 1
 
 # Start production ASGI server
-CMD exec uvicorn main:app --app-dir /app/backend --host 0.0.0.0 --port ${PORT}
+CMD ["sh", "-c", "exec uvicorn main:app --app-dir /app/backend --host 0.0.0.0 --port ${PORT:-8080}"]

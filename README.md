@@ -256,7 +256,8 @@ Follow this exact day-by-day checklist to guarantee a fully compliant, productio
   * [x] Live global edge deployment: [https://continuity-sre.pages.dev](https://continuity-sre.pages.dev)
   * [x] Deployment preview: [https://continuity-sre.pages.dev](https://continuity-sre.pages.dev)
   * [x] Verified global HTTP/2 200 OK status via automated edge probe.
-* [x] **Docker & Cloud Run Packaging:**
+* [x] **Docker & Cloud Run Packaging & Live Deployment:**
+  * [x] Live Google Cloud Run Backend API: [https://continuity-api-121300560395.us-central1.run.app](https://continuity-api-121300560395.us-central1.run.app)
   * [x] Production multi-stage [`Dockerfile`](Dockerfile) with FastAPI backend, healthchecks, and Cloud Run `PORT=8080` binding.
   * [x] Local container staging harness with [`docker-compose.yml`](docker-compose.yml).
   * [x] Automated deployment shell script [`deploy.sh`](deploy.sh) with pre-flight pytest gate.
@@ -281,6 +282,7 @@ Follow this exact day-by-day checklist to guarantee a fully compliant, productio
   * [x] **Elevator Pitch:** *"Autonomous stream continuity SRE powered by Gemini & Grafana Cloud MCP. Isolates edge CDN bottlenecks and self-heals live blockbuster premiere streams in under 2 seconds."*
   * [x] **Partner Track:** Grafana Labs Track
   * [x] **Hosted URL:** [https://continuity-sre.pages.dev](https://continuity-sre.pages.dev)
+  * [x] **Cloud Run API:** [https://continuity-api-121300560395.us-central1.run.app](https://continuity-api-121300560395.us-central1.run.app)
   * [x] **GitHub URL:** [https://github.com/bobybarack/continuity-sre](https://github.com/bobybarack/continuity-sre)
   * [x] **Built With Tags:** `google-cloud`, `gemini-api`, `google-adk`, `google-genai`, `grafana-cloud`, `cloudflare-pages`, `prometheus`, `loki`, `fastapi`, `python`, `docker`, `cloud-run`, `pytest`
   * [x] **Complete Narrative Sections:** Inspiration, What it does, How we built it, Accomplishments, Challenges, and What's next.

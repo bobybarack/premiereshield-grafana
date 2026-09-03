@@ -1,6 +1,6 @@
 import { TelemetrySnapshot, InvestigationResult, GrafanaHealth, ChaosState } from "../types/telemetry";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://continuity-api-121300560395.us-central1.run.app";
 
 export class ApiService {
   private static async request<T>(endpoint: string, options?: RequestInit): Promise<T> {
